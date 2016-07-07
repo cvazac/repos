@@ -21,9 +21,16 @@ export default class Repos extends Component {
 
   render () {
     const {data} = this.state
+    const firstRepo = data[0]
+    if (!firstRepo) {
+      return <div>Loading...</div>
+    }
+
     return (
       <div>
-        {JSON.stringify(data)}
+        <pre>
+          {JSON.stringify(firstRepo, null, 2)}
+        </pre>
       </div>
     )
   }
