@@ -10,8 +10,7 @@ export default class Repos extends Component {
   }
 
   componentDidMount = () => {
-    axios.get('https://api.github.com/repositories')
-    .then((response) => {
+    axios.get('https://api.github.com/repositories').then((response) => {
       const {data} = response
       this.setState({
         data,
@@ -26,8 +25,13 @@ export default class Repos extends Component {
       return <div>Loading...</div>
     }
 
+    const {id, name, description} = firstRepo
     return (
       <div>
+        <div>id: {id}</div>
+        <div>name: {name}</div>
+        <div>description: {description}</div>
+        <br/>
         <pre>
           {JSON.stringify(firstRepo, null, 2)}
         </pre>
